@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teacher</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="main-bg">
+
+<div class="container">
+  <h2>Teacher Panel</h2>
+
+  <button onclick="logout()">Logout</button>
+
+  <input id="newsInput" placeholder="Enter news">
+  <button onclick="addNews()">Add</button>
+
+  <div id="list"></div>
+</div>
+
+<script>
+function addNews(){
+  let n=document.getElementById("newsInput").value;
+  let data=JSON.parse(localStorage.getItem("news"))||[];
+  data.push(n);
+  localStorage.setItem("news",JSON.stringify(data));
+  show();
+}
+
+function del(i){
+  let data=JSON.parse(localStorage.getItem("news"));
+  data.splice(i,1);
+  localStorage.setItem("news",JSON.stringify(data));
+  show();
+}
+
+function show(){
+  let data=JSON.parse(localStorage.getItem("news"))||[];
+  let html="";
+  data.forEach((n,i)=>{
+    html+=`<div class="card">${n}<br><button onclick="del(${i})">Delete</button></div>`;
+  });
+  document.getElementById("list").innerHTML=html;
+}
+show();
+
+function logout(){
+  localStorage.removeItem("userRole");
+  window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>

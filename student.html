@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="main-bg">
+
+<div class="container">
+  <h2>Student Panel</h2>
+
+  <button onclick="goClass()">📚 Classes</button>
+
+  <h3>📰 News</h3>
+  <div id="newsBox"></div>
+</div>
+
+<script>
+let news = JSON.parse(localStorage.getItem("news")) || [];
+let box = document.getElementById("newsBox");
+
+news.forEach(n=>{
+  box.innerHTML += `<div class="card">${n}</div>`;
+});
+
+function goClass(){
+  window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+body{
+  margin:0;
+  font-family:Arial;
+}
+
+.main-bg{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,green,blue);
+}
+
+.container,.login-box{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  width:300px;
+  text-align:center;
+}
+
+.classes{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.card{
+  background:green;
+  color:white;
+  padding:10px;
+  border-radius:8px;
+}
+
+button{
+  margin:5px;
+  padding:8px;
+}
+
+.error{
+  color:red;
+}

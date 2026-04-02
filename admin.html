@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="main-bg">
+
+<div class="container">
+  <h2>Admin Panel</h2>
+
+  <button onclick="logout()">Logout</button>
+
+  <input id="name" placeholder="Student Name">
+  <input id="marks" placeholder="Marks">
+  <button onclick="addMarks()">Add</button>
+
+  <input id="att" placeholder="Attendance">
+  <button onclick="addAtt()">Add</button>
+
+  <h3>Delete Marks</h3>
+  <div id="marksList"></div>
+
+  <h3>Delete Attendance</h3>
+  <div id="attList"></div>
+</div>
+
+<script>
+function addMarks(){
+  let n=name.value,m=marks.value;
+  let d=JSON.parse(localStorage.getItem("marks"))||[];
+  d.push({name:n,marks:m});
+  localStorage.setItem("marks",JSON.stringify(d));
+  show();
+}
+function addAtt(){
+  let n=name.value,a=att.value;
+  let d=JSON.parse(localStorage.getItem("attendance"))||[];
+  d.push({name:n,days:a});
+  localStorage.setItem("attendance",JSON.stringify(d));
+  show();
+}
+function delM(i){
+  let d=JSON.parse(localStorage.getItem("marks"));
+  d.splice(i,1);
+  localStorage.setItem("marks",JSON.stringify(d));
+  show();
+}
+function delA(i){
+  let d=JSON.parse(localStorage.getItem("attendance"));
+  d.splice(i,1);
+  localStorage.setItem("attendance",JSON.stringify(d));
+  show();
+}
+function show(){
+  let m=JSON.parse(localStorage.getItem("marks"))||[];
+  marksList.innerHTML=m.map((x,i)=>`<div class="card">${x.name}:${x.marks}<br><button onclick="delM(${i})">Delete</button></div>`).join("");
+  let a=JSON.parse(localStorage.getItem("attendance"))||[];
+  attList.innerHTML=a.map((x,i)=>`<div class="card">${x.name}:${x.days}<br><button onclick="delA(${i})">Delete</button></div>`).join("");
+}
+show();
+
+function logout(){
+  localStorage.removeItem("userRole");
+  window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>
