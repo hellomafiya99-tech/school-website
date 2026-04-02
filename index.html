@@ -17,7 +17,7 @@ if(!localStorage.getItem("userRole")){
   <h1>📚 Select Class</h1>
 
   <button onclick="logout()">Logout</button>
-  <button onclick="contact()">Contact</button>
+  <button onclick="goContact()">Contact</button>
 
   <div id="classes" class="classes"></div>
 </div>
@@ -29,7 +29,7 @@ function logout(){
   localStorage.removeItem("userRole");
   window.location.href="login.html";
 }
-function contact(){
+function goContact(){
   window.location.href="contact.html";
 }
 </script>
