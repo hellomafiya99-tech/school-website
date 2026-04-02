@@ -1,6 +1,6 @@
 function login(){
   let role = document.getElementById("role").value;
-  let u = document.getElementById("user").value;
+  let u = document.getElementById("user").value.toLowerCase();
   let p = document.getElementById("pass").value;
 
   if(role==="student" && u==="student" && p==="123"){
