@@ -8,10 +8,9 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background: linear-gradient(135deg, #00c6ff, #0072ff); /* 🔥 FIXED */
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
 }
 
-/* Box */
 .container,.login-box{
   background:white;
   padding:20px;
@@ -21,39 +20,29 @@ body{
   box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* Grid */
 .classes{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:10px;
 }
 
-/* Card */
 .card{
   background:#0072ff;
   color:white;
   padding:10px;
   border-radius:10px;
   cursor:pointer;
-  transition:0.3s;
 }
 
-.card:hover{
-  transform:scale(1.05);
-}
-
-/* Button */
 button{
   margin:5px;
   padding:8px;
-  border:none;
   background:#0072ff;
   color:white;
+  border:none;
   border-radius:8px;
-  cursor:pointer;
 }
 
-/* Input */
 input,select{
   width:90%;
   padding:8px;
